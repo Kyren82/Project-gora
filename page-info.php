@@ -3,7 +3,7 @@
     <div class="info-panel">
         <ul class="info-text-panel">
             <li class="info-element">
-                <p class="info-element-text">tylko nerdy na windowsie to widzą</p>
+                <p class="info-element-text">co za połączenie 😭😭</p>
             </li>
         </ul>
     </div>

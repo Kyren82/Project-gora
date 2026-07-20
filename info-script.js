@@ -32,7 +32,8 @@ async function get_rest_api(){
 
                 let status = document.createElement('p');
                 status.classList.add('info-element-status');
-                status.textContent = 'status: ' + el['status'];
+                let color = (el['status'] == 'publish') ? '#75e339' : '#e25976';
+                status.innerHTML = 'status: <span style="color: '+color+';">' + el['status'] + '</span>';
                 li.appendChild(status);
 
                 let type = document.createElement('p');
@@ -43,6 +44,9 @@ async function get_rest_api(){
                 document.querySelector('.info-element').appendChild(li);
             });
             document.querySelector('.info-element-text').textContent = 'Ilość elementów: '+count;
+        })
+        .catch(error => {
+            console.log("error");
         })
 }
 
