@@ -1,4 +1,4 @@
-async function get_rest_api(){
+function get_rest_api(){
     let URL = "http://localhost:3131/wp-json/wp/v2/korona";
     fetch(URL)
         .then(response => {
@@ -8,9 +8,7 @@ async function get_rest_api(){
             return response.json();
         })
         .then(data => {
-            let count = 0;
             data.forEach(el => {
-                count++;
                 let li = document.createElement('li');
                 li.classList.add('info-element');
 
@@ -21,7 +19,7 @@ async function get_rest_api(){
 
                 let id = document.createElement('p');
                 id.classList.add('info-element-id');
-                id.textContent = 'id: ' + el['id'];
+                id.textContent = `id: ${el['id']}`;
                 li.appendChild(id);
 
                 let link = document.createElement('a');
@@ -33,17 +31,17 @@ async function get_rest_api(){
                 let status = document.createElement('p');
                 status.classList.add('info-element-status');
                 let color = (el['status'] == 'publish') ? '#75e339' : '#e25976';
-                status.innerHTML = 'status: <span style="color: '+color+';">' + el['status'] + '</span>';
+                status.innerHTML = `status: <span style="color: ${color};"> ${el['status']} </span>`;
                 li.appendChild(status);
 
                 let type = document.createElement('p');
                 type.classList.add('info-element-type');
-                type.textContent = 'type: ' + el['type'];
+                type.textContent = `type: ${el['type']}`;
                 li.appendChild(type);
                 
                 document.querySelector('.info-element').appendChild(li);
             });
-            document.querySelector('.info-element-text').textContent = 'Ilość elementów: '+count;
+            document.querySelector('.info-element-text').textContent = `ilość elementów: ${data.length}`;
         })
         .catch(error => {
             console.log("error");

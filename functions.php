@@ -22,6 +22,83 @@ function korony_add_mnpm($value, $post_id, $field){
 }
 add_filter('acf/format_value', 'korony_add_mnpm', 10, 3);
 
+// -------------------------------------------------------------
+
+function add_pattern_new_pattern(){
+    register_block_pattern(
+        'patern-1',
+        array(
+            'title'   => 'Pattern 1',
+            'content' =>'<!-- wp:paragraph -->
+                        <p>asdasdasdasd</p>
+                        <!-- /wp:paragraph -->'
+        )
+    );
+}
+
+add_action('init', 'add_pattern_new_pattern');
+
+function my_enqueue_block_variations(){
+    wp_enqueue_script(
+        'my-block-variations',
+        get_template_directory_uri() . '/custom-block-p.js',
+        array( 'wp-blocks', 'wp-dom-ready' ),
+        '1.0',
+        true
+    );
+}
+add_action('enqueue_block_editor_assets', 'my_enqueue_block_variations');
+
+function my_custom_block_category($categories, $editor_context){
+    $custom_category = array(
+        'slug'  => 'Custom-blocks',
+        'title' => 'Custom',
+        'icon'  => 'star-filled',
+    );
+
+    array_unshift($categories, $custom_category);
+
+    return $categories;
+}
+
+add_filter('block_categories_all', 'my_custom_block_category', 10, 2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function cpt_korony() {
 //     $labels = array(
