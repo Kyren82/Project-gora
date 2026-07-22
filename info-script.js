@@ -41,7 +41,7 @@ function get_rest_api(){
                 
                 document.querySelector('.info-element').appendChild(li);
             });
-            document.querySelector('.info-element-text').textContent = `ilość elementów: ${data.length}`;
+            document.querySelector('.info-element-text').textContent = `Ilość aktualnych koron: ${data.length}`;
         })
         .catch(error => {
             console.log("error");
