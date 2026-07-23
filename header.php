@@ -8,9 +8,7 @@
 <body <?php body_class(); ?>>
     <header>
         <h1 class="header-title">
-            <?php 
-                $header_link = get_field('header-title-link', 'option'); 
-            ?>
+            <?php $header_link = get_field('header-title-link', 'option');  ?>
             <a href="<?php echo esc_url($header_link["url"]); ?>"> <?php echo esc_html($header_link["title"]); ?> </a>
         </h1>
         <ul class="header-nav">

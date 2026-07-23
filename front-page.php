@@ -2,4 +2,4 @@
 <div class="hero">
     <p>Wejdź w bolesną podróż po górach!</p>
 </div>
-<?php get_footer(); ?>
+<?php get_footer(); ?> 
