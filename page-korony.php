@@ -14,7 +14,7 @@
             <div class="korony-post-panel">
                 <h2 class="korony-post-title"><a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h2>
                 <div class="korony-post-thumbnail">
-                    <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+                    <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium', array('loading' => 'lazy')); ?></a>
                 </div>
             </div>
         <?php endwhile; ?>
